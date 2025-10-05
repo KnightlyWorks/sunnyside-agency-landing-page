@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
+/*Barlow for paragraphs. Weights: 600(semi-bold)*/
+
+/*Fraunces for h1-h6, Weights: 700, 900(bold,font-black)*/
+
+@import "tailwindcss";
+@custom-variant hofa (&:hover, &:focus, &:active );
+@theme {
+  /*Primary*/
+  --color-red-400: hsl(7, 99%, 70%);
+  --color-yellow-500: hsl(51, 100%, 49%);
+  --color-green-800: hsl(167, 40%, 24%);
+  --color-blue-800: hsl(198, 62%, 26%);
+  --color-green-500: hsl(167, 34%, 41%);
+
+  /*Neutral*/
+  --color-grey-950: hsl(212, 27%, 19%);
+  --color-grey-600: hsl(213, 9%, 39%);
+  --color-grey-550: hsl(232, 10%, 55%);
+  --color-grey-400: hsl(210, 4%, 67%);
+  --color-white: hsl(0, 100%, 100%);
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    font-family: "Barlow", sans-serif;
+    @apply text-[18px] font-semibold antialiased;
+  }
+}
+
+@layer components {
+  p {
+    @apply max-w-[45ch];
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Fraunces", serif;
+    @apply max-w-[45ch] font-bold antialiased; /*sometimes changes to font-black*/
+  }
+
+  .learn-more {
+    @apply relative transition-colors duration-500 after:absolute after:-bottom-0.5 after:left-1/2 after:h-1 after:w-[calc(100%_+_5ch)] after:-translate-x-1/2 after:rounded-3xl after:opacity-55 after:content-[''];
+  }
+}
